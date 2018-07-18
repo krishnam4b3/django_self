@@ -1,0 +1,16 @@
+    
+    <head>
+        <header>COMPANIES</header>
+    </head>
+    <body>
+        <div class="grid1">
+            {% if company %}
+                {% for i in company %}
+                   <div class="img"><img src="{{i.companyimage.url}}"></div>
+                    <a href="home/">view</a>
+               {% endfor %}
+            {% else %}
+                <p>no items</p>
+            {% endif %}                   
+        </div>
+    </body>

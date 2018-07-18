@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+  <body>
+      <center>
+    <header>
+      
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Arbiter</a>
+              </div>
+              <ul class="nav navbar-nav">
+
+                {% if user.is_authenticated %}
+              <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                {% else %}
+                <li><a style="float: right;" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                <a style="float: right;" href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              </ul>
+              {% endif %}
+            </div>
+          </nav>
+    </header>
+  </center>
+
+  <head>
+      <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+      crossorigin="anonymous"></script>
+    
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <title>My Page</title>
+      <style>
+          .font {
+              font-family: 'Cedarville Cursive', cursive;
+              height: 50px;
+          }
+    .slideshow{
+      margin: 0;
+      padding: 0;
+    }
+    .navbar{
+      margin: 0;
+      padding: 0; 
+    }
+    
+    
+          ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #333;
+          }
+    
+          body {
+              margin: 0;
+          }
+    
+          li {
+              float: left;
+          }
+    
+          li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+          }
+    
+          li a:hover {
+              background-color: #111;
+          }
+    
+    
+    
+      </style>
+    </head>
+    <script>
+      var i = 0;
+      var images = [];
+      var time = 4000;
+      images[0] = "https://wallpapercave.com/wp/iKd4wfO.jpg";
+      images[1] = "http://gipsypixel.com/wp-content/uploads/2017/11/Bmw-Black-Wallpaper-Walls-Hd-Backgrounds-High-Resolution-For-Desktop.jpg";
+      images[2] = "https://www.hdwallpapers.in/thumbs/2018/abt_audi_rs_4_r_avant_2018_4k-t2.jpg";
+      images[3] = "https://www.mercedes-benz.com/wp-content/uploads/sites/3/2017/09/05-mercedes-benz-concept-car-eqa-3400x1440.jpg";
+      images[4] = "https://robbreportedit.files.wordpress.com/2013/10/1491921.jpg?w=1000";
+      images[5] = "http://www.gaddidekho.com/wp-content/uploads/2015/07/Black-Volvo-XC90-Front-View.jpg";
+      images[6] = "http://imagesvc.timeincapp.com/v3/foundry/image/?q=70&w=1440&url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F01%2Flamborghini-aventador-s.jpg%3Fquality%3D85";
+      images[7] = "https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/174912.jpg";
+      images[8] = "http://wallpaperlepi.com/wp-content/uploads/2015/09/Black-Ferrari-2012-HD-Desktop.jpg";
+    
+      function changeImg() {
+          document.slide.src = images[i]
+          if (i < images.length - 1) {
+              i++;
+          } else {
+              i = 0;
+          }
+          setTimeout("changeImg()", time);
+      }
+      window.onload = changeImg;
+    </script>
+    
+    <body>
+      <center>
+      <div class="slideshow">
+          <img name="slide" width="100%" height="700">
+      </div>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

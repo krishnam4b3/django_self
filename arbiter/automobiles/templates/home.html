@@ -1,0 +1,57 @@
+ {% block content %}
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Arbiter</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      {% if user.is_authenticated %}
+      <ul class="nav navbar-nav navbar-right">
+
+        <li>
+          <a href="{% url 'logout' %}">
+            <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+        </li>
+        {% else %}
+        <li>
+          <a style="float: right;" href="{% url 'login' %}">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <a style="float: right;" href="{% url 'signup' %}">
+            <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+      </ul>
+      {% endif %}
+  </div>
+</nav>
+<center>
+  <h2>Welcome, {{ user.username }}!</h2>
+
+
+  <body>
+    <div class="grid1">
+      {% if company %} {% for i in company %}
+          <img src="{{i.companyimage.url}}">
+        
+        <a href="home/">view</a>
+      </div>
+        {% endfor %} {% else %}
+        <p>no items</p>
+        {% endif %}
+      </div>
+
+</center>
+</body>
+{% endblock %}
+
+
+
